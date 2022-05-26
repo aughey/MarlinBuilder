@@ -1,5 +1,7 @@
 # Building inside a VSCode Dev Container
 
+The idea of building inside of a container is that the entire workspace, all the dependencies, are encapsulated into a pre-configured virtual Linux environment that is built on-the-fly.  This container can be created and destroyed in a matter of seconds and the environment is consistant for every developer.
+
 ## Creating a Dev Container Workspace:
 
 - [Install and configure VSCode for container development](https://code.visualstudio.com/docs/remote/containers-tutorial) on your platform
@@ -9,25 +11,18 @@
 - Paste in the url for this repositoy into the URL input field ```https://github.com/aughey/MarlinBuilder.git```
 - Wait while the container starts and installs necessary dependencies.
 
-## _Checkout Marlin_
+## Use the top level build script
 ```
-git clone git@github.com:MarlinFirmware/Marlin.git Marlin -b bugfix-2.0.x --depth 1
-```
-
-## _Run build steps_
-For each machine you want to target, replace V1CNC_ConfigName with the machine config. (eg. V1CNC_SkrPro_DualLR_2209)
-```
-source .venv/bin/activate
-src/core/config-for-machine V1CNC_ConfigName
-src/core/build-for-machine
+sh build.sh
 ```
 
-## _Post build cleanup_
-Optional but helps when getting build errors between different configurations
+This will show you a list of the available configurations.  Choose a configuration and add it
+to the command line
+
 ```
-cd Marlin
-git checkout .
-git reset --hard
-git clean -f
-cd ..
+sh build.sh V13DP_Rambo
 ```
+
+## Transfer the firmware.hex file to your local computer
+
+In the Explorer panel on the left side (press ```Ctrl-B``` to show this panel if it is hidden), right click on the firmware.hex file and choose ```Download```.

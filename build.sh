@@ -31,6 +31,8 @@ fi
     git reset --hard && \
     git clean -f)
 
+rm -f firmware.hex
+
 # Configure for our target
 src/core/configure-for-machine $TARGET
 src/core/build-for-machine

@@ -34,5 +34,5 @@ fi
 rm -f firmware.hex
 
 # Configure for our target
-src/core/configure-for-machine $TARGET
+src/core/config-for-machine $TARGET
 src/core/build-for-machine

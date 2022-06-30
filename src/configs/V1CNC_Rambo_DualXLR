@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+restore_configs
+
+export V1_VERSION=${V1_VERSION}DL
+
+$CFGDIR/common/v1-base-config
+$CFGDIR/common/cnc-config
+$CFGDIR/boards/rambo
+$CFGDIR/accessories/reprap_discount_full_graphic_lcd
+$CFGDIR/accessories/dual-drivers-on-xz
+$CFGDIR/boards/rambo_dual
+
+opt_enable \
+    X2_DRIVER_TYPE \
+    Z2_DRIVER_TYPE
+
+opt_disable \
+    E0_DRIVER_TYPE
+
+export PLATFORMIO_ENV=rambo

@@ -12,16 +12,12 @@ opt_set AXIS_RELATIVE_MODES "{ false, false, false }"
 
 opt_set Z_HOME_DIR "+1"
 
-opt_set NUM_Z_STEPPER_DRIVERS "2"
-
 # Z Min probe configuration.
 opt_set Z_MIN_PROBE_PIN "Z_MIN_PIN"
 opt_disable \
     Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 opt_set USER_DESC_4 "\"Probe Z min\""
 opt_set USER_GCODE_4 "\"G38.2 Z0\""
-
-opt_set Z2_USE_ENDSTOP "_YMAX_"
 
 opt_enable \
     MIN_SOFTWARE_ENDSTOPS \
@@ -30,10 +26,8 @@ opt_enable \
     USE_XMAX_PLUG \
     USE_YMAX_PLUG \
     USE_ZMAX_PLUG \
-    X_DUAL_STEPPER_DRIVERS \
     INVERT_X2_VS_X_DIR \
     X_DUAL_ENDSTOPS \
-    INVERT_Z2_VS_Z_DIR \
     Z_MULTI_ENDSTOPS \
     G38_PROBE_TARGET \
     FIX_MOUNTED_PROBE
